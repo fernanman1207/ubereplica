@@ -1,3 +1,4 @@
+
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
@@ -22,7 +23,8 @@
       "es2018", 
       "dom"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "types": ["node", "@types/body-parser"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
