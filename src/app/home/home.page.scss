@@ -1,27 +1,36 @@
-#container {
-  text-align: center;
+/* home.page.scss */
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content {
+  --ion-background-color: #f8f8f8; /* Fondo gris claro */
+  --ion-toolbar-background: #fff; /* Barra de herramientas blanca */
+
+  .map-container {
+    height: 50%;
+  }
+
+  ion-card {
+    --ion-background-color: #fff;
+    --ion-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  ion-button {
+    --ion-padding-start: 20px;
+    --ion-padding-end: 20px;
+    --ion-border-radius: 10px;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* Estilos adicionales para personalizar aún más */
+
+/* Botón de solicitud de viaje */
+.request-button {
+  --ion-background-color: #424242;
+  --ion-text-color: #fff;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+/* Tarjeta de vehículo */
+.vehicle-card {
+  /* Estilos para cada tarjeta de vehículo */
 }
