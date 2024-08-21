@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomePage } from './home.page';
-import { MapService } from 'map/map.service.ts'; // Mock or replace with real service
+import { MapService } from '../map/map.service'; // Mock or replace with real service
 import { GeolocationService } from '../services/geolocation.service'; // Mock or replace
 import { RideRequestService } from '../services/ride-request.service'; // Mock or replace
 import { VehicleService } from '../services/vehicle.service'; // Mock or replace
