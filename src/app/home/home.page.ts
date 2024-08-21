@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MapService } from './map.service';
+import { MapService } from 'map/map.service.ts';
 import { GeolocationService } from '../services/geolocation.service';
 import { RideRequestService } from '../services/ride-request.service';
 import { VehicleService } from '../services/vehicle.service';

@@ -7,14 +7,41 @@ import { google } from 'google-maps';
 })
 export class MapService {
   map: google.maps.Map;
+  directionsService = new google.maps.DirectionsService();
 
-  initMap() {
-    // Inicializar el mapa con la ubicación del usuario
+  initMap(center: google.maps.LatLngLiteral = { lat: -34.397, lng: 150.644 }) {
+    // Inicializar el mapa con la ubicación del usuario o una ubicación por defecto
     this.map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: -34.397, lng: 150.644 },
+      center,
       zoom: 8,
     });
   }
 
-  // Otros métodos para agregar marcadores, calcular rutas, etc.
+  calculateRoute(origin: google.maps.LatLngLiteral, destination: google.maps.LatLngLiteral): Observable<google.maps.DirectionsResult> {
+    return new Observable((observer) => {
+      this.directionsService.route({
+        origin,
+        destination,
+        travelMode: 'DRIVING' // Puedes cambiar el modo de transporte
+      }, (response, status) => {
+        if (status === 'OK') {
+          observer.next(response);
+        } else {
+          observer.error(response);
+        }
+      });
+    });
+  }
+
+  // Otros métodos útiles:
+  addMarker(position: google.maps.LatLngLiteral): google.maps.Marker {
+    return new google.maps.Marker({
+      position,
+      map: this.map
+    });
+  }
+
+  fitBounds(bounds: google.maps.LatLngBounds): void {
+    this.map.fitBounds(bounds);
+  }
 }
