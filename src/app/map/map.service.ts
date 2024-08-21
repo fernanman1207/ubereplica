@@ -17,17 +17,17 @@ export class MapService {
     });
   }
 
-  calculateRoute(origin: google.maps.LatLngLiteral, destination: google.maps.LatLngLiteral): Observable<google.maps.DirectionsResult> {
+  calculateRoute(origin: google.maps.LatLngLiteral, destination: google.maps.LatLngLiteral): Observable<google.maps.DirectionsResult | string> {
     return new Observable((observer) => {
       this.directionsService.route({
         origin,
         destination,
-        travelMode: 'DRIVING' // Puedes cambiar el modo de transporte
+        travelMode: 'DRIVING'
       }, (response, status) => {
         if (status === 'OK') {
           observer.next(response);
         } else {
-          observer.error(response);
+          observer.error(`Error calculating route: ${status}`);
         }
       });
     });
